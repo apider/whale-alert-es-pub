@@ -62,3 +62,6 @@ You need to change the repository url & port in <code>manifest.yaml</code> on li
 
 ## enhancements
 All remaining messy static configs like ES-url, index, repository etc can probably be switched for ENV VARS. 
+
+## Dashboard
+![alt text](https://github.com/apider/whale-alert-es/blob/development/dashboard.png?raw=true)
