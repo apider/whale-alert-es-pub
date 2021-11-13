@@ -9,7 +9,7 @@ https://whale-alert.io/
 Docs: 
 https://docs.whale-alert.io/
 
-## Config
+## Config envs and vars
 ### API-KEY
 Register with whale-alert and get your private api key. https://whale-alert.io/
 
@@ -26,7 +26,7 @@ Path for this file can be changed on line <code>16</code> in <code>app.py</code>
 
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
-## Elasticsearch config
+### Elasticsearch config
 You need to change to your ES instance host/url on line <code>27, 28</code> in <code>app.py</code>
 
 In this example it uses unsecure http comms on port <code>9200</code>
