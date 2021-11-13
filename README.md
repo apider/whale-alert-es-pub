@@ -35,7 +35,7 @@ Whale Alert API gives you a cursor so you can keep track of where in the event f
 
 I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts so we dont re-fetch old data.
 
-If you get <code>{'result': 'error', 'message': 'value out of range for start parameter. For the Free plan the maximum transaction history is 3600 seconds'}</code> then your cursor is more than 3600 seconds old, and you need to delete it or set to <code>0-0-0</code> to get going again. It is not done bu the code. This 'error' man happen if your code is 'offline' for more than 1 hour.
+If you get <code>{'result': 'error', 'message': 'value out of range for start parameter. For the Free plan the maximum transaction history is 3600 seconds'}</code> then your cursor is more than 3600 seconds old, and you need to delete it or set to <code>0-0-0</code> to get going again. It is not done by the code. This 'error' will happen if your code is 'offline' for more than 1 hour and you have an 'old' cursor. Probably will fix this later...
 
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
