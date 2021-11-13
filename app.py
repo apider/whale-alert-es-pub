@@ -141,4 +141,5 @@ while True:
         logging.info(payload)
 
     # wait X sec and run again
+    # For the free plan the number of requests is limited to 10 per minute.
     time.sleep(10)
