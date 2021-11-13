@@ -46,7 +46,7 @@ See 'Config ENV vars' above.
 ## locally
 Just run <code>python3 app.py</code> on your workstation/server.
 
-Remember to change the <code>cursorpath</code> on line <code>16</code> in <code>app.py</code> and set the <code>TOKEN</code> (see above).
+Remember to set the <code>TOKEN</code> and optionally <code>CURSORPATH</code> ENV vars (see above).
 ## Docker
 Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
