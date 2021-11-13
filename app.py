@@ -103,13 +103,13 @@ async def elasticsearchSend(payload):
             ### Post to Elasticsearch async
             tasks.append(asyncio.ensure_future(postEs(client, item)))
 
-        asyncresponse = await asyncio.gather(*tasks)
+        responses = await asyncio.gather(*tasks)
 
         logging.info("--- Async total time: %s sec ---" %
                      (time.time() - start_time))
         logging.info('Posting to ES finished')
 
-        return asyncresponse
+        return responses
 
 
 # Try to fetch old cursor from file at startup
