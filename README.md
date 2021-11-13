@@ -33,14 +33,17 @@ You need to change to your ES instance host/url & index on line <code>27, 28</co
 
 In this example it uses unsecure http comms on port <code>9200</code>
 # Running
-### locally
+## locally
 Just run <code>python3 app.py</code> on your workstation/server.
 
 Remenber to change the cursor file path on line <code>16</code> in <code>app.py</code> and set the <code>TOKEN</code> (see above).
-### Docker
+## Docker
 Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
-### Kubernetes
+## Kubernetes
+
+## Name space
+By default the <code>manifest.yaml</code> uses name space <code>prod</code>.
 ### api-key in k8s
 There is a basic <code>manifest.yaml</code> containing Deployment & PVC.
 
@@ -48,7 +51,7 @@ Before running in Kubernetes, first create a secret named <code>token</code>.
 
 Deployment will import it as ENV variable <code>TOKEN</code>
 
-<code>kubectl -n 'namespace' create secret generic whale-alert-es-secret --from-literal=token='your-whale-alert-api-key'</code>
+<code>kubectl -n YOUR-NAME-SPACE create secret generic whale-alert-es-secret --from-literal=token='your-whale-alert-api-key'</code>
 
 ### k8s image repository
 You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local repo.
