@@ -11,16 +11,23 @@ https://whale-alert.io/
 Docs: 
 https://docs.whale-alert.io/
 
-## Config envs and vars
-### API-KEY
+## Config ENVs/VARs
+You need to specify a few ENV vars:
+
+<code>TOKEN</code> - your personal Whale Alert API key - mandatory
+
+<code>ESHOST</code> - Elasticsearch host, default <code>http://elasticsearch:9200</code> - optional
+
+<code>ESINDEX</code> - Elasticsearch index name, default <code>whalealert</code> - optional
+
+### API-key / TOKEN
 Register with whale-alert and get your private api key. https://whale-alert.io/
 
-You can either use api key from file <code>key.py</code> or ENV variable <code>TOKEN</code>, if running locally.
-
-See & change line 11-13 in <code>app.py</code> accordingly.
+You can store api key in a file if you want. 
+Change line <code>11-13</code> in <code>app.py</code> accordingly.
 
 ### cursor
-Whale Alert gives you a cursor so you can keep track of where in the event flow you are.
+Whale Alert API gives you a cursor so you can keep track of where in the event flow you are.
 
 I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts so we dont re-fetch old data.
 
@@ -31,11 +38,8 @@ The <code>manifest.yaml</code> has a PVC & mount defined for this.
 If you run pure <code>docker</code> you need to create & use a volume for it.
 
 ### Elasticsearch config
-You need to change to your ES instance host/url & index on line <code>27, 28</code> in <code>app.py</code>
+See 'Config ENVs/VARs' above.
 
-Or set it with ENV variables <code>ESHOST</code> & <code>ESINDEX</code>
-
-By default it uses unsecure http comms to <code>http://elasticsearch:9200</code>
 # Running
 ## locally
 Just run <code>python3 app.py</code> on your workstation/server.
@@ -68,6 +72,6 @@ Some remaining messy static configs like repository etc can probably be switched
 ## Dashboard
 Dashboard & viz export can be found in file <code>kibana-dashboard-and-viz-export.json</code>
 
-This could be done much better ofcourse. Also I have a really old ES/Kibana version.
+This dash could be done much better ofcourse. Also I have a really old ES/Kibana version.
 
 ![alt text](https://github.com/apider/whale-alert-es/blob/master/dashboard.png?raw=true)
