@@ -32,14 +32,23 @@ esheaders = {'Content-Type': 'application/json'}
 # whale alert vars
 url = 'https://api.whale-alert.io'
 transactionUri = '/v1/transactions'
+# diff = 3599
 
 
-async def getWhaleData(cursor):
+def getWhaleData(cursor):
+
+    # timestamp = int(time.time()) - diff
 
     params = {'api_key': TOKEN, 'min_value': min_value, 'cursor': cursor}
 
-    async with httpx.AsyncClient() as client:
-        r = await client.get(url=url + transactionUri, params=params)
+    # Probably not best idea to make this call async
+    # async with httpx.AsyncClient() as client:
+    #     r = await client.get(url=url + transactionUri, params=params)
+    #     return r.json()
+
+    # sync call
+    with httpx.Client() as sync_client:
+        r = sync_client.get(url=url + transactionUri, params=params)
         return r.json()
 
 
@@ -100,16 +109,15 @@ async def elasticsearchSend(payload):
                      (time.time() - start_time))
         logging.info('Posting to ES finished')
 
-        # optional logging, of async post operations, remove if you want
-        for i in asyncresponse:
-            logging.info(i)
+        return asyncresponse
 
 
 # Try to fetch old cursor from file at startup
 cursor = fetchLatestCursor()
 
 while True:
-    payload = asyncio.run(getWhaleData(cursor))
+    # payload = asyncio.run(getWhaleData(cursor))
+    payload = getWhaleData(cursor)
 
     if payload and payload['result'] == 'success':
         # save new cursor
@@ -119,7 +127,11 @@ while True:
             logging.info('Got new transactions! Trans count: %s',
                          payload['count'])
 
-            asyncio.run(elasticsearchSend(payload))
+            r = asyncio.run(elasticsearchSend(payload))
+
+            # optional logging, of async post operations, remove if you want
+            for call in r:
+                logging.info(call)
 
             # update new cursor in file for restarts
             # only needed if there is new data, otherwise cursor will be unchanged
