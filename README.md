@@ -1,7 +1,7 @@
 # whale-alert-es
 Whale Alert crypto transaction scraper to Elasticsearch
 
-Scrapes whale-alert crypto transaction data and ingest to Elasticsearch for further dashboarding/graphing.
+Scrapes whale-alert crypto transaction data and ingests to Elasticsearch for further dashboarding/graphing.
 
 Elasticsearch ingest is done asynchronously with asyncio & httpx library.
 ### Uses data from
@@ -22,7 +22,7 @@ See & change line 11-13 in <code>app.py</code> accordingly.
 ### cursor
 Whale Alert gives you a cursor so you can keep track of where in the event flow you are.
 
-I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts.
+I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts so we dont re-fetch old data.
 
 Path for this file can be changed on line <code>16</code> in <code>app.py</code>
 
