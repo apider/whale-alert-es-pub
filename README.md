@@ -38,7 +38,7 @@ In this example it uses unsecure http comms on port <code>9200</code>
 ## locally
 Just run <code>python3 app.py</code> on your workstation/server.
 
-Remenber to change the cursor file path on line <code>16</code> in <code>app.py</code> and set the <code>TOKEN</code> (see above).
+Remember to change the cursor file path on line <code>16</code> in <code>app.py</code> and set the <code>TOKEN</code> (see above).
 ## Docker
 Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
