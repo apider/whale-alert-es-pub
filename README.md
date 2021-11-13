@@ -11,10 +11,12 @@ https://whale-alert.io/
 Docs: 
 https://docs.whale-alert.io/
 
-## Config ENVs/VARs
+## Config ENV vars
 You need to specify a few ENV vars:
 
 <code>TOKEN</code> - your personal Whale Alert API key - mandatory
+
+<code>CURSORPATH</code> - path for <code>cursor</code> file, default <code>/data/</code> - optional
 
 <code>ESHOST</code> - Elasticsearch host, default <code>http://elasticsearch:9200</code> - optional
 
@@ -31,14 +33,12 @@ Whale Alert API gives you a cursor so you can keep track of where in the event f
 
 I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts so we dont re-fetch old data.
 
-Path for this file can be changed on line <code>16</code> in <code>app.py</code>
-
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
 If you run pure <code>docker</code> you need to create & use a volume for it.
 
 ### Elasticsearch config
-See 'Config ENVs/VARs' above.
+See 'Config ENV vars' above.
 
 # Running
 ## locally
