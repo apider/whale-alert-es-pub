@@ -13,7 +13,7 @@ from datetime import datetime
 TOKEN = os.environ.get('TOKEN')
 
 # set cursor file path
-cursorpath = '/data/'
+cursorpath = os.environ.get('CURSORPATH', '/data/')
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',
