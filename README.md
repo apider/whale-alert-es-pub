@@ -44,7 +44,9 @@ Use <code>Dockerfile</code> to build from, if you want to run in container or Ku
 ### api-key in k8s
 There is a basic <code>manifest.yaml</code> containing Deployment & PVC.
 
-Before running in Kubernetes, first create a secret named <code>token</code>. Deployment will import it as ENV variable <code>TOKEN</code>
+Before running in Kubernetes, first create a secret named <code>token</code>.
+
+Deployment will import it as ENV variable <code>TOKEN</code>
 
 <code>kubectl -n 'namespace' create secret generic whale-alert-es-secret --from-literal=token='your-whale-alert-api-key'</code>
 
