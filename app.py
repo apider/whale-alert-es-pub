@@ -9,7 +9,7 @@ from datetime import datetime
 # Parameters and setup
 
 # get ans set whale-alert-api-key (token)
-# from key import TOKEN
+# from token import TOKEN
 TOKEN = os.environ.get('TOKEN')
 
 # set cursor file path

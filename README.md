@@ -1,7 +1,9 @@
 # whale-alert-es
 Whale Alert crypto transaction scraper to Elasticsearch
 
-Program to scrape whale-alert crypto transaction data and ingest to Elasticsearch for further dashboarding/graphing.
+Scrapes whale-alert crypto transaction data and ingest to Elasticsearch for further dashboarding/graphing.
+
+Elasticsearch ingest is done asynchronously with asyncio & httpx library.
 ### Uses data from
 Main site: 
 https://whale-alert.io/
@@ -13,7 +15,7 @@ https://docs.whale-alert.io/
 ### API-KEY
 Register with whale-alert and get your private api key. https://whale-alert.io/
 
-You can either use api key from file <code>key.py</code> or ENV variable <code>TOKEN</code>, if running locally.
+You can either use api key from file <code>token.py</code> or ENV variable <code>TOKEN</code>, if running locally.
 
 See & change line 11-13 in <code>app.py</code> accordingly.
 
@@ -27,14 +29,14 @@ Path for this file can be changed on line <code>16</code> in <code>app.py</code>
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
 ### Elasticsearch config
-You need to change to your ES instance host/url on line <code>27, 28</code> in <code>app.py</code>
+You need to change to your ES instance host/url & index on line <code>27, 28</code> in <code>app.py</code>
 
 In this example it uses unsecure http comms on port <code>9200</code>
 # Running
 ### locally
 Just run <code>python3 app.py</code> on your workstation/server.
 
-Remenber to change the cursor file path on line <code>16</code> in <code>app.py</code>
+Remenber to change the cursor file path on line <code>16</code> in <code>app.py</code> and set the API-KEY (see above).
 ### Docker
 Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
