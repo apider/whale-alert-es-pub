@@ -23,16 +23,6 @@ spec:
         - name: whale-alert-es
           image: registry.home:6000/whale-alert-es:latest
           imagePullPolicy: Always
-          readinessProbe:
-            tcpSocket:
-              port: 8000
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            tcpSocket:
-              port: 8000
-            initialDelaySeconds: 15
-            periodSeconds: 20
           env:
             - name: TOKEN
               valueFrom:

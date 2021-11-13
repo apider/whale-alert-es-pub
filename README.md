@@ -22,7 +22,7 @@ Whale Alert gives you a cursor so you can keep track of where in the event flow 
 
 I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts.
 
-Path for this file can be changed on line <code>16</code>
+Path for this file can be changed on line <code>16</code> in <code>app.py</code>
 
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
