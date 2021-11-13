@@ -28,6 +28,8 @@ Path for this file can be changed on line <code>16</code> in <code>app.py</code>
 
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
+If you run pure <code>docker</code> you need to create & use a volume for it.
+
 ### Elasticsearch config
 You need to change to your ES instance host/url & index on line <code>27, 28</code> in <code>app.py</code>
 
