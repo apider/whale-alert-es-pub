@@ -42,6 +42,8 @@ Remember to change the <code>cursorpath</code> on line <code>16</code> in <code>
 ## Docker
 Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
+You will need to create & use a volume for <code>cursorpath</code>
+
 ## Kubernetes
 
 ### Name space
