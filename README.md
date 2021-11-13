@@ -59,3 +59,6 @@ Deployment will import it as ENV variable <code>TOKEN</code>
 
 ### k8s image repository
 You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local repo.
+
+## enhancements
+All remaining messy static configs like ES-url, index, repository etc can probably be switched for ENV VARS. 
