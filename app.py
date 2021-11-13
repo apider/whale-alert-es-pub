@@ -8,8 +8,8 @@ from datetime import datetime
 
 # Parameters and setup
 
-# get ans set whale-alert-api-key (token)
-# from key import TOKEN
+# set whale-alert-api-key (token)
+# from key import TOKEN     # if from file
 TOKEN = os.environ.get('TOKEN')
 
 # set cursor file path
@@ -32,10 +32,10 @@ esheaders = {'Content-Type': 'application/json'}
 # whale alert vars
 url = 'https://api.whale-alert.io'
 transactionUri = '/v1/transactions'
-diff = 3599
 
 
 async def getWhaleData(cursor):
+    # diff = 3599
     # timestamp = int(time.time()) - diff
 
     params = {
