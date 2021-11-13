@@ -36,12 +36,12 @@ diff = 3599
 
 
 async def getWhaleData(cursor):
-    timestamp = int(time.time()) - diff
+    # timestamp = int(time.time()) - diff
 
     params = {
         'api_key': TOKEN,
         'min_value': min_value,
-        'start': timestamp,
+        # 'start': timestamp,
         'cursor': cursor
     }
 
