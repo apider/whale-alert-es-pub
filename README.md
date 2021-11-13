@@ -33,8 +33,10 @@ In this example it uses unsecure http comms on port <code>9200</code>
 # Running
 ### locally
 Just run <code>python3 app.py</code> on your workstation/server.
+
+Remenber to change the cursor file path on line <code>16</code> in <code>app.py</code>
 ### Docker
-Use <code>Dockerfile</code> tu build from if you want to run in container or Kubernetes.
+Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
 ### Kubernetes
 ### api-key in k8s
@@ -44,5 +46,5 @@ See <code>manifest.yaml</code>
 
 <code>kubectl -n 'namespace' create secret generic whale-alert-es-secret --from-literal=token='your-whale-alert-api-key'</code>
 
-### repository in k8s
-You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local one.
+### k8s image repository
+You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local repo.
