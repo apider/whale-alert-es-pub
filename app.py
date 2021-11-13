@@ -9,7 +9,7 @@ from datetime import datetime
 # Parameters and setup
 
 # get ans set whale-alert-api-key (token)
-# from token import TOKEN
+# from key import TOKEN
 TOKEN = os.environ.get('TOKEN')
 
 # set cursor file path
@@ -24,8 +24,8 @@ min_value = 500000
 logging.info('Individual transaction minimal value: $%s', min_value)
 
 # Elasticearch params
-eshost = 'http://elasticsearch.home:9200'
-esindex = 'whalealert'
+eshost = os.environ.get('ESHOST', 'http://elasticsearch:9200')
+esindex = os.environ.get('ESINDEX', 'whalealert')
 esurl = eshost + '/' + esindex + '/_doc/'
 esheaders = {'Content-Type': 'application/json'}
 
