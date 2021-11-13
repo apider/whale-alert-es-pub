@@ -64,4 +64,8 @@ You need to change the repository url & port in <code>manifest.yaml</code> on li
 All remaining messy static configs like ES-url, index, repository etc can probably be switched for ENV VARS. 
 
 ## Dashboard
+Dashboard & viz export can be found in file <code>kibana-dashboard-and-viz-export.json</code>
+
+This could be done much better ofcourse. Also I have a really old ES/Kibana version.
+
 ![alt text](https://github.com/apider/whale-alert-es/blob/master/dashboard.png?raw=true)
