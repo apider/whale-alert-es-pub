@@ -18,6 +18,8 @@ You need to specify a few ENV vars:
 
 <code>CURSORPATH</code> - path for <code>cursor</code> file, default <code>/data/</code> - optional
 
+<code>MIN_VALUE</code> - minimum transaction value in $, default <code>500000</code> - optional
+
 <code>ESHOST</code> - Elasticsearch host, default <code>http://elasticsearch:9200</code> - optional
 
 <code>ESINDEX</code> - Elasticsearch index name, default <code>whalealert</code> - optional
