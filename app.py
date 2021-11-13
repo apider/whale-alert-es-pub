@@ -35,15 +35,8 @@ transactionUri = '/v1/transactions'
 
 
 async def getWhaleData(cursor):
-    # diff = 3599
-    # timestamp = int(time.time()) - diff
 
-    params = {
-        'api_key': TOKEN,
-        'min_value': min_value,
-        # 'start': timestamp,
-        'cursor': cursor
-    }
+    params = {'api_key': TOKEN, 'min_value': min_value, 'cursor': cursor}
 
     async with httpx.AsyncClient() as client:
         r = await client.get(url=url + transactionUri, params=params)
