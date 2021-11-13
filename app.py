@@ -20,7 +20,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',
                     level=logging.INFO)
 
 # min individual transaction dollar value (free plan: 500k minimum)
-min_value = 500000
+min_value = os.environ.get('MIN_VALUE', 500000)
 logging.info('Individual transaction minimal value: $%s', min_value)
 
 # Elasticearch params
