@@ -15,7 +15,7 @@ https://docs.whale-alert.io/
 ### API-KEY
 Register with whale-alert and get your private api key. https://whale-alert.io/
 
-You can either use api key from file <code>token.py</code> or ENV variable <code>TOKEN</code>, if running locally.
+You can either use api key from file <code>key.py</code> or ENV variable <code>TOKEN</code>, if running locally.
 
 See & change line 11-13 in <code>app.py</code> accordingly.
 
@@ -33,7 +33,9 @@ If you run pure <code>docker</code> you need to create & use a volume for it.
 ### Elasticsearch config
 You need to change to your ES instance host/url & index on line <code>27, 28</code> in <code>app.py</code>
 
-In this example it uses unsecure http comms on port <code>9200</code>
+Or set it with ENV variables <code>ESHOST</code> & <code>ESINDEX</code>
+
+By default it uses unsecure http comms to <code>http://elasticsearch:9200</code>
 # Running
 ## locally
 Just run <code>python3 app.py</code> on your workstation/server.
@@ -61,7 +63,7 @@ Deployment will import it as ENV variable <code>TOKEN</code>
 You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local repo.
 
 ## enhancements
-All remaining messy static configs like ES-url, index, repository etc can probably be switched for ENV VARS. 
+Some remaining messy static configs like repository etc can probably be switched for ENV VARS. 
 
 ## Dashboard
 Dashboard & viz export can be found in file <code>kibana-dashboard-and-viz-export.json</code>
