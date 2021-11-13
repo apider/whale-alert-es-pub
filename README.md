@@ -43,11 +43,11 @@ Use <code>Dockerfile</code> to build from, if you want to run in container or Ku
 ## Kubernetes
 
 ### Name space
-By default the <code>manifest.yaml</code> uses name space <code>prod</code>.
+By default the <code>manifest.yaml</code> uses name space <code>prod</code>
 ### api-key in k8s
 There is a basic <code>manifest.yaml</code> containing Deployment & PVC.
 
-Before running in Kubernetes, first create a secret named <code>token</code>.
+Before running in Kubernetes, first create a secret named <code>token</code>
 
 Deployment will import it as ENV variable <code>TOKEN</code>
 
