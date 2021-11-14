@@ -77,4 +77,4 @@ A simple Kibana dashboard & viz export can be found in <code>kibana/kibana-dashb
 
 This dash could be done much better ofcourse. Also I have a really old ES/Kibana version.
 
-![alt text](https://github.com/apider/whale-alert-es/blob/master/dashboard.png?raw=true)
+![alt text](https://github.com/apider/whale-alert-es/blob/master/kibana/dashboard.png?raw=true)
