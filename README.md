@@ -3,6 +3,8 @@ Whale Alert crypto transaction scraper to Elasticsearch
 
 Scrapes whale-alert crypto transaction data and ingests to Elasticsearch for further dashboarding/graphing.
 
+This project was done for learning more about async functionality and as a fun crypto project.
+
 Elasticsearch ingest is done asynchronously with asyncio & httpx library.
 ### Uses data from
 Main site: 
@@ -12,7 +14,7 @@ Docs:
 https://docs.whale-alert.io/
 
 ## Config ENV vars
-You need to specify a few ENV vars:
+Runtime ENV vars (mandator/optional):
 
 <code>TOKEN</code> - your personal Whale Alert API key - mandatory
 
@@ -35,11 +37,13 @@ Whale Alert API gives you a cursor so you can keep track of where in the event f
 
 I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts so we dont re-fetch old data.
 
-If you get <code>{'result': 'error', 'message': 'value out of range for start parameter. For the Free plan the maximum transaction history is 3600 seconds'}</code> then your cursor is more than 3600 seconds old, and you need to delete it or set to <code>0-0-0</code> to get going again. It is not done by the code. This 'error' will happen if your code is 'offline' for more than 1 hour and you have an 'old' cursor. Probably will fix this later...
-
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
 If you run pure <code>docker</code> you need to create & use a volume for it.
+
+If you get <code>{'result': 'error', 'message': 'value out of range for start parameter. For the Free plan the maximum transaction history is 3600 seconds'}</code> then your cursor is more than 3600 seconds old, and you need to delete it or set to <code>0-0-0</code> to get going again. It is not done by the code. 
+
+will fix this later...
 
 ### Elasticsearch config
 See 'Config ENV vars' above.
@@ -52,16 +56,14 @@ Remember to set the <code>TOKEN</code> and optionally <code>CURSORPATH</code> EN
 ## Docker
 Use <code>Dockerfile</code> to build from, if you want to run in container or Kubernetes.
 
-You will need to create & use a volume for <code>cursorpath</code>
+You will need to create & use a volume for <code>cursorpath</code> for pure docker.
 
 ## Kubernetes
-
-### Name space
-By default the <code>manifest.yaml</code> uses name space <code>prod</code>
-### api-key in k8s
 There is a basic <code>manifest.yaml</code> containing Deployment & PVC.
-
-Before running in Kubernetes, first create a secret named <code>token</code>
+### Name space
+The <code>manifest.yaml</code> uses name space <code>prod</code>
+### api-key in k8s
+Before deploying in Kubernetes, first create a secret named <code>token</code>
 
 Deployment will import it as ENV variable <code>TOKEN</code>
 
@@ -70,11 +72,8 @@ Deployment will import it as ENV variable <code>TOKEN</code>
 ### k8s image repository
 You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local repo.
 
-## enhancements
-Some remaining messy static configs like repository etc can probably be switched for ENV VARS. 
-
 ## Dashboard
-Dashboard & viz export can be found in file <code>kibana-dashboard-and-viz-export.json</code>
+A simple Kibana dashboard & viz export can be found in <code>kibana/kibana-dashboard-and-viz-export.json</code>
 
 This dash could be done much better ofcourse. Also I have a really old ES/Kibana version.
 
