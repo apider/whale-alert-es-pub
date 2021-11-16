@@ -139,7 +139,7 @@ while True:
 
         else:
             logging.info('No transactions...')
-            logging.info('Unchanged cuursor: %s', payload['cursor'])
+            logging.info('Unchanged cursor: %s', payload['cursor'])
 
     else:
         logging.info('Error...')
