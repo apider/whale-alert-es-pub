@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "6c444d20-440a-11ec-8966-617f572e47b7",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Whale Alert",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"h\":11,\"i\":\"1\",\"w\":37,\"x\":0,\"y\":0},\"id\":\"387021f0-4409-11ec-8966-617f572e47b7\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.8.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":10,\"i\":\"2\",\"w\":24,\"x\":0,\"y\":11},\"id\":\"02f48980-4422-11ec-b698-0389ce0ac137\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.8.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":10,\"i\":\"3\",\"w\":24,\"x\":24,\"y\":11},\"id\":\"555c28d0-4423-11ec-8966-617f572e47b7\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.8.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":15,\"i\":\"4\",\"w\":24,\"x\":24,\"y\":21},\"id\":\"346f73b0-4429-11ec-b698-0389ce0ac137\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.8.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":15,\"i\":\"5\",\"w\":24,\"x\":0,\"y\":21},\"id\":\"63da6dd0-4429-11ec-b698-0389ce0ac137\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.8.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":11,\"i\":\"6\",\"w\":11,\"x\":37,\"y\":0},\"id\":\"fdd3ab50-449b-11ec-8966-617f572e47b7\",\"panelIndex\":\"6\",\"type\":\"visualization\",\"version\":\"6.8.0\"}]",
+      "optionsJSON": "{\"darkTheme\":true,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now",
+      "timeFrom": "now-7d",
+      "refreshInterval": {
+        "pause": false,
+        "value": 30000
+      },
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[]}"
+      }
+    }
+  }
+]
