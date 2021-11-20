@@ -1,10 +1,10 @@
 import json
 import asyncio
-import httpx
 import time
 import logging
 import os
 from datetime import datetime
+import httpx
 
 # Parameters and setup
 
