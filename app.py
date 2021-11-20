@@ -30,8 +30,8 @@ esurl = eshost + '/' + esindex + '/_doc/'
 esheaders = {'Content-Type': 'application/json'}
 
 # whale alert vars
-url = 'https://api.whale-alert.io'
-transactionUri = '/v1/transactions'
+URL = 'https://api.whale-alert.io'
+TRANSACTIONURI = '/v1/transactions'
 # diff = 3599
 
 
@@ -43,12 +43,12 @@ def getWhaleData(cursor):
 
     # Probably not best idea to make this call async
     # async with httpx.AsyncClient() as client:
-    #     r = await client.get(url=url + transactionUri, params=params)
+    #     r = await client.get(url=URL + TRANSACTIONURI, params=params)
     #     return r.json()
 
     # sync call
     with httpx.Client() as sync_client:
-        r = sync_client.get(url=url + transactionUri, params=params)
+        r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
         return r.json()
 
 
@@ -59,7 +59,7 @@ def getWhaleData(cursor):
 
 
 def writeToFileCursor(cursor):
-    with open(cursorpath + "cursor.json", "w") as f:
+    with open(cursorpath + "cursor.json", "w", encoding=None) as f:
         logging.info('Updating cursor file, cursor: %s', payload['cursor'])
         cursorj = {'cursor': cursor}
         f.write(json.dumps(cursorj, indent=4))
@@ -105,7 +105,7 @@ async def elasticsearchSend(payload):
 
         responses = await asyncio.gather(*tasks)
 
-        logging.info("--- Async total time: %s sec ---" %
+        logging.info("--- Async total time: %s sec ---",
                      (time.time() - start_time))
         logging.info('Posting to ES finished')
 
