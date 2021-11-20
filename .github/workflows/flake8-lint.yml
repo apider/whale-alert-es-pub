@@ -19,6 +19,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8
         pip install -r requirements.txt
-    - name: Analysing the code with pylint
+    - name: Analysing the code with flake8
       run: |
         flake8 `ls -R|grep .py$|xargs`
