@@ -69,7 +69,7 @@ def fetchLatestCursor():
     try:
         with open(cursorpath + "cursor.json", "r") as f:
             cursor = json.load(f)['cursor']
-    except:
+    except FileNotFoundError:
         # if no file, return empty cursor
         logging.info('No cursor file found, returning empty cursor')
         return '0-0-0'
@@ -100,7 +100,7 @@ async def elasticsearchSend(payload):
 
             item['@timestamp'] = esdate
 
-            ### Post to Elasticsearch async
+            # Post to Elasticsearch async
             tasks.append(asyncio.ensure_future(postEs(client, item)))
 
         responses = await asyncio.gather(*tasks)
@@ -134,7 +134,7 @@ while True:
                 logging.info(call)
 
             # update new cursor in file for restarts
-            # only needed if there is new data, otherwise cursor will be unchanged
+            # only if new data, otherwise cursor will be unchanged
             writeToFileCursor(cursor)
 
         else:
