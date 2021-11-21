@@ -1,5 +1,6 @@
 # whale-alert-es
 Whale Alert crypto transaction scraper to Elasticsearch
+[![CodeQL](https://github.com/apider/whale-alert-es/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/apider/whale-alert-es/actions/workflows/codeql-analysis.yml)
 
 Scrapes whale-alert crypto transaction data and ingests to Elasticsearch for further dashboarding/graphing.
 
