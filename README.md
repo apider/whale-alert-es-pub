@@ -1,6 +1,9 @@
 # whale-alert-es
 Whale Alert crypto transaction scraper to Elasticsearch
+
 [![CodeQL](https://github.com/apider/whale-alert-es/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/apider/whale-alert-es/actions/workflows/codeql-analysis.yml)
+[![flake8](https://github.com/apider/whale-alert-es/actions/workflows/flake8-lint.yml/badge.svg?branch=master)](https://github.com/apider/whale-alert-es/actions/workflows/flake8-lint.yml)
+[![Docker Image CI](https://github.com/apider/whale-alert-es/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/apider/whale-alert-es/actions/workflows/docker-image.yml)
 
 Scrapes whale-alert crypto transaction data and ingests to Elasticsearch for further dashboarding/graphing.
 
