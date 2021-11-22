@@ -155,7 +155,7 @@ while True:
         logging.info(payload)
         if '3600' in payload['message']:
             cursorRm = removeCrusorFile()
-            logging.info('Old cursor removal: %s', cursorRm)
+            logging.info('Cursor to old remove: %s', cursorRm)
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
