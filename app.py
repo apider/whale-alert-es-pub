@@ -57,8 +57,10 @@ def getWhaleData(cursor):
 #     with open("api-example-output.json", "w") as f:
 #         f.write(json.dumps(payload, indent=4))
 
+
 def removeCrusorFile():
     try:
+        logging.warning('Cursor to old, trying remove cursor file...')
         os.remove(cursorpath + "cursor.json")
         return True
     except Exception as e:
@@ -87,7 +89,6 @@ def fetchLatestCursor():
 
 async def postEs(client, item):
     try:
-        logging.warning('Cursor to old, trying remove cursor file...')
         r = await client.post(esurl, data=json.dumps(item), headers=esheaders)
         return r
     except Exception as e:
@@ -153,7 +154,8 @@ while True:
         logging.info('Error...')
         logging.info(payload)
         if '3600' in payload['message']:
-            removeCrusorFile()
+            cursorRm = removeCrusorFile()
+            logging.info('Old cursor removal: %s', cursorRm)
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
