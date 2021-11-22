@@ -58,6 +58,15 @@ def getWhaleData(cursor):
 #         f.write(json.dumps(payload, indent=4))
 
 
+def removeCrusorFile():
+    try:
+        logging.warning('Cursor to old, trying remove cursor file...')
+        os.remove(cursorpath + "cursor.json")
+        return True
+    except Exception as e:
+        return e
+
+
 def writeToFileCursor(cursor):
     with open(cursorpath + "cursor.json", "w", encoding=None) as f:
         logging.info('Updating cursor file, cursor: %s', payload['cursor'])
@@ -144,6 +153,9 @@ while True:
     else:
         logging.info('Error...')
         logging.info(payload)
+        if '3600' in payload['message']:
+            cursorRm = removeCrusorFile()
+            logging.info('Old cursor removed: %s', cursorRm)
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
