@@ -41,13 +41,11 @@ Whale Alert API gives you a cursor so you can keep track of where in the event f
 
 I save this cursor in a file called <code>cursor.json</code> to be loaded on program/container restarts so we dont re-fetch old data.
 
+If the cursor is older than 3600 seconds, API throws an error and the code handles that and removes the outdated/incorrect cursor.
+
 The <code>manifest.yaml</code> has a PVC & mount defined for this.
 
 If you run pure <code>docker</code> you need to create & use a volume for it.
-
-If you get <code>{'result': 'error', 'message': 'value out of range for start parameter. For the Free plan the maximum transaction history is 3600 seconds'}</code> then your cursor is more than 3600 seconds old, and you need to delete it or set to <code>0-0-0</code> to get going again. It is not done by the code. 
-
-will fix this later...
 
 ### Elasticsearch config
 See 'Config ENV vars' above.
