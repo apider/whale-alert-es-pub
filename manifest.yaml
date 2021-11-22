@@ -11,8 +11,7 @@ spec:
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
-    type:
-      RollingUpdate
+    type: RollingUpdate
   selector:
     matchLabels:
       app: whale-alert-es
