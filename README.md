@@ -72,7 +72,7 @@ Deployment will import it as ENV variable <code>TOKEN</code>
 <code>kubectl -n YOUR-NAME-SPACE create secret generic whale-alert-es-secret --from-literal=token='your-whale-alert-api-key'</code>
 
 ### k8s image repository
-You need to change the repository url & port in <code>manifest.yaml</code> on line <code>24</code>, as manifest uses my local repo.
+You need to change the repository url & port in <code>manifest.yaml</code> on line <code>29</code>, as manifest uses my local repo.
 
 ## Dashboard
 A simple Kibana dashboard & viz export can be found in <code>kibana/kibana-dashboard-and-viz-export.json</code>
