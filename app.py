@@ -54,6 +54,9 @@ def getWhaleData(cursor):
         except httpx.ReadTimeout as e:
             print(e)
             return False
+        except httpx.HTTPError as e:
+            print(e)
+            return False
         except Exception as e:
             print(e)
             return False
