@@ -171,8 +171,8 @@ while True:
             logging.info('Unchanged cursor: %s', payload['cursor'])
 
     else:
-        logging.info('Error...')
-        logging.info(payload)
+        logging.error('Error...')
+        logging.error(payload)
         if '3600' in payload['message']:
             cursorRm = removeCrusorFile()
             logging.info('Old cursor removed: %s', cursorRm)
