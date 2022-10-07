@@ -3,8 +3,12 @@ import asyncio
 import time
 import logging
 import os
+import socket
 from datetime import datetime
+import httpcore
+import httpcore.exceptions
 import httpx
+import httpx.exceptions
 
 # Parameters and setup
 
@@ -47,9 +51,37 @@ def getWhaleData(cursor):
     #     return r.json()
 
     # sync call
-    with httpx.Client() as sync_client:
-        r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
-        return r.json()
+    try:
+        with httpx.Client() as sync_client:
+            r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
+            return r.json()
+
+    # except socket.timeout as e:
+    #     logging.error(e)
+    #     return False
+    except socket.Timeouterror as e:
+        logging.error(e)
+        return False
+
+    except httpx.ReadTimeout as e:
+        logging.error(e)
+        return False
+
+    except httpcore.ReadTimeout as e:
+        logging.error(e)
+        return False
+    except httpx.TimeoutException as e:
+        logging.error(e)
+        return False
+    except httpx.ConnectTimeout as e:
+        logging.error(e)
+        return False
+    except httpx.HTTPError as e:
+        logging.error(e)
+        return False
+    except Exception as e:
+        logging.error(e)
+        return False
 
 
 # for initial tests
@@ -151,12 +183,12 @@ while True:
             logging.info('Unchanged cursor: %s', payload['cursor'])
 
     else:
-        logging.info('Error...')
-        logging.info(payload)
+        logging.error('Error...')
+        logging.error(payload)
         if '3600' in payload['message']:
             cursorRm = removeCrusorFile()
             logging.info('Old cursor removed: %s', cursorRm)
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
-    time.sleep(10)
+    time.sleep()
