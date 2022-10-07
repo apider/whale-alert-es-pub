@@ -6,9 +6,7 @@ import os
 import socket
 from datetime import datetime
 import httpcore
-import httpcore.exceptions
 import httpx
-import httpx.exceptions
 
 # Parameters and setup
 
@@ -56,9 +54,9 @@ def getWhaleData(cursor):
             r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
             return r.json()
 
-    # except socket.timeout as e:
-    #     logging.error(e)
-    #     return False
+    except socket.timeout as e:
+        logging.error(e)
+        return False
     except socket.Timeouterror as e:
         logging.error(e)
         return False
