@@ -7,6 +7,7 @@ import socket
 from datetime import datetime
 import httpcore
 import httpx
+import httpx.exceptions
 
 # Parameters and setup
 
