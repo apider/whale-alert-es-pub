@@ -3,7 +3,7 @@ import asyncio
 import time
 import logging
 import os
-import socket
+# import socket
 from datetime import datetime
 # import httpcore
 import httpx
@@ -56,8 +56,7 @@ def getWhaleData(cursor):
 
     except Exception:
         # logging.error(e)
-        console.log(
-            '----------', dict(message="failure")
+        console.log('----------', dict(message="failure")
         return dict(message="failure")
 
 # for initial tests
