@@ -56,6 +56,8 @@ def getWhaleData(cursor):
 
     except Exception as e:
         logging.error(e)
+        console.log(
+            '----------', dict(message="unsuccessfull connection", error=e))
         return dict(message="unsuccessfull connection", error=e)
 
 # for initial tests
