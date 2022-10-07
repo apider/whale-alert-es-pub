@@ -56,6 +56,9 @@ def getWhaleData(cursor):
     except socket.Timeouterror as e:
         logging.error(e)
         return False
+    except socket.timeout as e:
+        logging.error(e)
+        return False
     except httpx.ReadTimeout as e:
         logging.error(e)
         return False
