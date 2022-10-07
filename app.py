@@ -56,18 +56,14 @@ def getWhaleData(cursor):
             r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
             return r.json()
 
-    except Exception as e:
+    # except socket.timeout as e:
+    #     logging.error(e)
+    #     return False
+    except socket.Timeouterror as e:
         logging.error(e)
         return False
 
     except httpx.ReadTimeout as e:
-        logging.error(e)
-        return False
-
-    except socket.timeout as e:
-        logging.error(e)
-        return False
-    except socket.Timeouterror as e:
         logging.error(e)
         return False
 
@@ -195,4 +191,4 @@ while True:
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
-    time.sleep(10)
+    time.sleep()
