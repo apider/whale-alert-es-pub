@@ -54,6 +54,10 @@ def getWhaleData(cursor):
             r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
             return r.json()
 
+    except Exception as e:
+        logging.error(e)
+        return False
+
     except socket.timeout as e:
         logging.error(e)
         return False
