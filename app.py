@@ -56,7 +56,7 @@ def getWhaleData(cursor):
 
     except Exception as e:
         logging.error(e)
-        return dict(message="false")
+        return dict(message="unsuccessfull connection", error=e)
 
 # for initial tests
 # def writeToFileJson(payload):
