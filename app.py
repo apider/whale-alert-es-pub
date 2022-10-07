@@ -54,15 +54,17 @@ def getWhaleData(cursor):
             r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
             return r.json()
 
+    except httpx.ReadTimeout as e:
+        logging.error(e)
+        return False
+
     except socket.timeout as e:
         logging.error(e)
         return False
     except socket.Timeouterror as e:
         logging.error(e)
         return False
-    except httpx.ReadTimeout as e:
-        logging.error(e)
-        return False
+
     except httpcore.ReadTimeout as e:
         logging.error(e)
         return False
