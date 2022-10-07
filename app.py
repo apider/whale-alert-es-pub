@@ -56,8 +56,8 @@ def getWhaleData(cursor):
 
     except Exception:
         # logging.error(e)
-        console.log('----------', dict(message="failure")
-        return dict(message="failure")
+        logging.error('---------- FAILURE')
+        return {'message': 'failure'}
 
 # for initial tests
 # def writeToFileJson(payload):
@@ -77,14 +77,14 @@ def removeCrusorFile():
 def writeToFileCursor(cursor):
     with open(cursorpath + "cursor.json", "w", encoding=None) as f:
         logging.info('Updating cursor file, cursor: %s', payload['cursor'])
-        cursorj={'cursor': cursor}
+        cursorj = {'cursor': cursor}
         f.write(json.dumps(cursorj, indent=4))
 
 
 def fetchLatestCursor():
     try:
         with open(cursorpath + "cursor.json", "r") as f:
-            cursor=json.load(f)['cursor']
+            cursor = json.load(f)['cursor']
     except FileNotFoundError:
         # if no file, return empty cursor
         logging.info('No cursor file found, returning empty cursor')
@@ -96,7 +96,7 @@ def fetchLatestCursor():
 
 async def postEs(client, item):
     try:
-        r=await client.post(esurl, data=json.dumps(item), headers=esheaders)
+        r = await client.post(esurl, data=json.dumps(item), headers=esheaders)
         return r
     except Exception as e:
         return e
@@ -107,19 +107,19 @@ async def elasticsearchSend(payload):
 
     async with httpx.AsyncClient() as client:
 
-        start_time=time.time()
-        tasks=[]
+        start_time = time.time()
+        tasks = []
         for item in payload['transactions']:
 
-            esdate=datetime.utcfromtimestamp(
+            esdate = datetime.utcfromtimestamp(
                 item['timestamp']).strftime('%Y-%m-%dT%H:%M:%S')
 
-            item['@timestamp']=esdate
+            item['@timestamp'] = esdate
 
             # Post to Elasticsearch async
             tasks.append(asyncio.ensure_future(postEs(client, item)))
 
-        responses=await asyncio.gather(*tasks)
+        responses = await asyncio.gather(*tasks)
 
         logging.info("--- Async total time: %s sec ---",
                      (time.time() - start_time))
@@ -129,21 +129,21 @@ async def elasticsearchSend(payload):
 
 
 # Try to fetch old cursor from file at startup
-cursor=fetchLatestCursor()
+cursor = fetchLatestCursor()
 
 while True:
     # payload = asyncio.run(getWhaleData(cursor))
-    payload=getWhaleData(cursor)
+    payload = getWhaleData(cursor)
 
     if payload and payload['result'] == 'success':
         # save new cursor
-        cursor=payload['cursor']
+        cursor = payload['cursor']
 
         if payload['count'] > 0:
             logging.info('Got new transactions! Trans count: %s',
                          payload['count'])
 
-            r=asyncio.run(elasticsearchSend(payload))
+            r = asyncio.run(elasticsearchSend(payload))
 
             # optional logging, of async post operations, remove if you want
             for call in r:
@@ -161,7 +161,7 @@ while True:
         logging.error('Error...')
         logging.error(payload)
         if '3600' in payload['message']:
-            cursorRm=removeCrusorFile()
+            cursorRm = removeCrusorFile()
             logging.info('Old cursor removed: %s', cursorRm)
 
     # wait X sec and run again
