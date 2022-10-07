@@ -51,6 +51,9 @@ def getWhaleData(cursor):
         try:
             r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
             return r.json()
+        except httpx.ReadTimeout as e:
+            print(e)
+            return False
         except Exception as e:
             print(e)
             return False
