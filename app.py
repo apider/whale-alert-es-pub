@@ -54,10 +54,10 @@ def getWhaleData(cursor):
             r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
             return r.json()
 
-    except Exception:
+    except Exception as e:
         # logging.error(e)
         logging.error('---------- FAILURE')
-        return {'message': 'failure'}
+        return {'result': 'failure', 'message': e}
 
 # for initial tests
 # def writeToFileJson(payload):
