@@ -3,7 +3,7 @@ import asyncio
 import time
 import logging
 import os
-import socket
+# import socket
 from datetime import datetime
 # import httpcore
 import httpx
