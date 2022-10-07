@@ -5,7 +5,7 @@ import logging
 import os
 import socket
 from datetime import datetime
-import httpcore
+# import httpcore
 import httpx
 
 # Parameters and setup
@@ -56,35 +56,7 @@ def getWhaleData(cursor):
 
     except Exception as e:
         logging.error(e)
-        return False
-
-    except socket.timeout as e:
-        logging.error(e)
-        return False
-    except socket.Timeouterror as e:
-        logging.error(e)
-        return False
-
-    except httpx.ReadTimeout as e:
-        logging.error(e)
-        return False
-
-    except httpcore.ReadTimeout as e:
-        logging.error(e)
-        return False
-    except httpx.TimeoutException as e:
-        logging.error(e)
-        return False
-    except httpx.ConnectTimeout as e:
-        logging.error(e)
-        return False
-    except httpx.HTTPError as e:
-        logging.error(e)
-        return False
-    except Exception as e:
-        logging.error(e)
-        return False
-
+        return dict(message="unsuccessfull connection", error=e)
 
 # for initial tests
 # def writeToFileJson(payload):
