@@ -48,8 +48,12 @@ def getWhaleData(cursor):
 
     # sync call
     with httpx.Client() as sync_client:
-        r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
-        return r.json()
+        try:
+            r = sync_client.get(url=URL + TRANSACTIONURI, params=params)
+            return r.json()
+        except Exception as e:
+            print(e)
+            return False
 
 
 # for initial tests
