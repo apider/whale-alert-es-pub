@@ -55,9 +55,8 @@ def getWhaleData(cursor):
             return r.json()
 
     except Exception as e:
-        # logging.error(e)
-        logging.error('---------- FAILURE')
-        return {'result': 'failure', 'message': e}
+        logging.error(e)
+        return {'result': 'failure', 'message': 'error'}
 
 # for initial tests
 # def writeToFileJson(payload):
