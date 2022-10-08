@@ -1,2 +1,2 @@
 httpx==0.23.0
-httpcore
+# httpcore
