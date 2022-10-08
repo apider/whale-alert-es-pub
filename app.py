@@ -164,4 +164,4 @@ while True:
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
-    time.sleep(180)
+    time.sleep(10)
