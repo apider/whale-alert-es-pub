@@ -131,6 +131,7 @@ async def elasticsearchSend(payload):
 cursor = fetchLatestCursor()
 
 while True:
+    logging.info('CURSOR:', cursor)
     # payload = asyncio.run(getWhaleData(cursor))
     payload = getWhaleData(cursor)
 
