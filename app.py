@@ -55,7 +55,7 @@ def getWhaleData(cursor):
             return r.json()
 
     except Exception as e:
-        logging.error(' Response from AIP, %s', e)
+        logging.error('Bad response from AIP: %s', e)
         return {'result': 'failure', 'message': 'error'}
 
 # for initial tests
@@ -157,7 +157,6 @@ while True:
             logging.info('Unchanged cursor: %s', payload['cursor'])
 
     else:
-        logging.error('bad response from API')
         logging.error(payload)
         if '3600' in payload['message']:
             cursorRm = removeCrusorFile()
@@ -165,4 +164,4 @@ while True:
 
     # wait X sec and run again
     # For the free plan the number of requests is limited to 10 per minute.
-    time.sleep(10)
+    time.sleep(180)
