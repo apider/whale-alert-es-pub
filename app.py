@@ -55,7 +55,7 @@ def getWhaleData(cursor):
             return r.json()
 
     except Exception as e:
-        logging.error(e)
+        logging.error(' From AIP, %s', e)
         return {'result': 'failure', 'message': 'error'}
 
 # for initial tests
@@ -157,7 +157,7 @@ while True:
             logging.info('Unchanged cursor: %s', payload['cursor'])
 
     else:
-        logging.error('Error...')
+        logging.error('bad response from API')
         logging.error(payload)
         if '3600' in payload['message']:
             cursorRm = removeCrusorFile()
