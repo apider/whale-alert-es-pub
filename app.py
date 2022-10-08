@@ -55,7 +55,7 @@ def getWhaleData(cursor):
             return r.json()
 
     except Exception as e:
-        logging.error(' From AIP, %s', e)
+        logging.error(' Response from AIP, %s', e)
         return {'result': 'failure', 'message': 'error'}
 
 # for initial tests
