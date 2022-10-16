@@ -27,7 +27,7 @@ spec:
             claimName: whale-alert-es-pvc
       containers:
         - name: whale-alert-es
-          image: registry.home:6000/whale-alert-es:latest
+          image: apider/whale-alert-es:latest
           imagePullPolicy: Always
           env:
             - name: TOKEN
