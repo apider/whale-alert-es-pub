@@ -1,6 +1,7 @@
 name: flake8
 
 on:
+  workflow_dispatch:
   push:
     branches: [development]
   pull_request:
