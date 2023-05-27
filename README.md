@@ -1,6 +1,8 @@
-# whale-alert-es
 [![Lint with flake8](https://github.com/apider/whale-alert-es-pub/actions/workflows/flake8-lint.yml/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/flake8-lint.yml)
+[![CodeQL](https://github.com/apider/whale-alert-es-pub/actions/workflows/codeql.yml/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/codeql.yml)
 [![CI Pipeline](https://github.com/apider/whale-alert-es-pub/actions/workflows/ci.yaml/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/ci.yaml)
+
+# whale-alert-es
 
 Whale Alert crypto transaction scraper to Elasticsearch
 
