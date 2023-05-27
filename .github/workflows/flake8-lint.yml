@@ -9,7 +9,7 @@ on:
 
 jobs:
   lint:
-    runs-on: [self-hosted, k8s]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.9", "3.10"]
