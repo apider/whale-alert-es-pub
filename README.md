@@ -1,6 +1,7 @@
 [![Lint with flake8](https://github.com/apider/whale-alert-es-pub/actions/workflows/flake8-lint.yml/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/flake8-lint.yml)
 [![CodeQL](https://github.com/apider/whale-alert-es-pub/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/github-code-scanning/codeql)
 [![CI Pipeline](https://github.com/apider/whale-alert-es-pub/actions/workflows/ci.yaml/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/ci.yaml)
+[![Release](https://github.com/apider/whale-alert-es-pub/actions/workflows/release.yaml/badge.svg)](https://github.com/apider/whale-alert-es-pub/actions/workflows/release.yaml)
 
 # whale-alert-es
 
