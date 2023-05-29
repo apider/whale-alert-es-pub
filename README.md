@@ -14,7 +14,7 @@ This project was done for learning more about async functionality and as a fun c
 
 Elasticsearch ingest is done asynchronously with asyncio & httpx library.
 ### Uses data from
-Main site: 
+Main site:  
 https://whale-alert.io/
 
 Docs: 
